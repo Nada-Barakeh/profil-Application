@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil bearbeiten</title>
+</head>
+<body>
+
+<div>
+    <h1> Profil bearbeiten</h1>
+
+    <form method="post" action="/profil">
+        <input type="hidden" name="id" th:value="${profilID}">
+        <textarea name="text" rows="5" cols="40"></textarea>
+        <button type="submit">Speichern</button>
+
+
+
+    </form>
+</div>
+
+</body>
+</html>
