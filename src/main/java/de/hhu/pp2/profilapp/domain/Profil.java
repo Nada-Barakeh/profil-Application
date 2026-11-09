@@ -1,6 +1,6 @@
 package de.hhu.pp2.profilapp.domain;
 
-//AggregatRoot
+//AggregatRoot(kein Bean Klass)
 public class Profil {
 
     private Long id;

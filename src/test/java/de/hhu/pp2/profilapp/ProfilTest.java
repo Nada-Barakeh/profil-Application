@@ -12,7 +12,7 @@ public class ProfilTest {
     @DisplayName("new Profil wird erfolgreich erstellt mit einem id = 123L & einen new Text")
     void testProfil(){
         //Arrange:
-        Profil p = new Profil(123L,"text");
+        Profil p = new Profil(123L," Alten text");
         //Act:
         p.changeText("new Text");
         //Assert:

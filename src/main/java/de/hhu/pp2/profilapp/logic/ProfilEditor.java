@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProfilEditor {
+    //Dependency Injection
     private final Profile profile;
+
     public ProfilEditor(Profile profile){
         this.profile=profile;
     }
