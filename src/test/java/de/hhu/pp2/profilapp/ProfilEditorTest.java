@@ -20,10 +20,10 @@ public class ProfilEditorTest {
         // Stub/Mock ,weil ich möchte den kein echten DadenBank in test benutzen
         //sondern mein Test von DatenBank zu isolieren somit bekomme ich einen schnellen Test
 
-        when(ps.load(123L)).thenReturn(p);
+        when(ps.load(123L)).thenReturn(p); // konfigurieren
         ProfilEditor editor = new ProfilEditor(ps);
         //Act:
-        editor.edit(123L , "new Text");
+        editor.edit(123L , "new Text"); // edit() gibt void zuruck
         //Assert:
         assertThat(p.getText()).isEqualTo("new Text");
         verify(ps).save(p);

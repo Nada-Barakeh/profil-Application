@@ -8,12 +8,12 @@ import java.util.Map;
 
 @Repository
 public class Profile {
-    //temporäre ich werde es später ersetzen
+// um Datei von DB zu speichern
     private final Map<Long, Profil> store=new HashMap<>();
 
     public Profil load(Long id){
         Profil p = store.get(id);
-
+        //Chek
         if(p==null) throw new RuntimeException("Profil nicht gefunden");
         return p;
     }

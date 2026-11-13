@@ -12,29 +12,38 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ProfilWebUI {
     private final ProfilEditor editor;
 
-    public ProfilWebUI(ProfilEditor editor){
-        this.editor=editor;
+    public ProfilWebUI(ProfilEditor editor) {
+        this.editor = editor;
     }
 
     @GetMapping("/profil")
-    public String showForm(Model model){
-        model.addAttribute("profilID" ,1L);
+    public String showForm(Model model) {
+        model.addAttribute("profilID", 1L);
         return "profilForm";
 
     }
 
 
     @PostMapping("/profil")
-    public String editProfil(@RequestParam Long id ,@RequestParam String text, Model model){
-       // es fehlt noch ein klasse ProfilForm die die Parameter zusammenpackt
+    public String editProfil(@RequestParam Long id, @RequestParam String text, Model model) {
+        // es fehlt noch ein klasse ProfilForm die die Parameter zusammenpackt
         // und ein mit @Valid annotierte obj ersetzt
-        // außerdem ein BindingResult hinder dem Validiereten Object hinzufugen
+        // außerdem ein BindingResult hinder dem Validieren Object hinzufugen
 
-        editor.edit(id,text);
-        model.addAttribute("erfolgreich" ,"Profil aktualisiert!");
+        if (text == null || text.isBlank()) {
+            model.addAttribute("fehler", "text soll nicht leer");
+            return "profilForm";
+        }
+
+
+        try {
+
+            editor.edit(id, text);
+            model.addAttribute("erfolgreich", "Profil aktualisiert!");
+        }catch (RuntimeException e){
+            model.addAttribute("fehler" , e.getMessage());
+        }
         return "profilForm";
     }
-
-
-    }
+}
 

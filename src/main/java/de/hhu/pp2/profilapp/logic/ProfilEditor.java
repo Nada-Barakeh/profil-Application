@@ -13,8 +13,8 @@ public class ProfilEditor {
         this.profile=profile;
     }
     public void edit(long id, String text){
-        Profil profil=profile.load(id);
-        profil.changeText(text);
+        Profil profil=profile.load(id); // git ein AggregatRoot zurück
+        profil.changeText(text);// text wird geändert
         profile.save(profil);
     }
 
